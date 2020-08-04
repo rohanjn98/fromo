@@ -1,9 +1,11 @@
 # fromo
-FROMO - Friendly Robot Mobile
+FROMO - Friendly Robot Mobile - Android Robotics
 
 Android in today's world is a widely accepted operating system which is accessible, affordable and available across maximum part of the globe.
 
 FROMO(Friendly Robot Mobile) is capable of performing tasks like remote controlled movement, face following mechanism (follows your face wherever you go!), programming mechanism (you can basically program the robot’s moves in a predefined way!), colored line following mechanism (the robot can follow colored lines!).
+
+For demo, please watch this YouTube video - https://www.youtube.com/watch?v=inJWdqrtSh4
 
 <img src="images/IMG_20170714_133324736_HDR.jpg" width=400 height=600 style="float:left">
 <img src="images/IMG_20170714_222216385.jpg" width=400 height=600 style="float:left">
@@ -47,5 +49,19 @@ FROMO(Friendly Robot Mobile) is capable of performing tasks like remote controll
 
 <img src="images/programming-mode.png" width=625 height=350 style="float:left">
 
+## Applications
+Our FROMO (Friendly Robot Mobile) is based on Android OS. It has wide industrial applications :
+1. Robots can be configured to do repetitive tasks using android.
+2. The size of the robot being a small one, it can be used for surveillance purpose.
+3. In the times of natural disasters like earthquakes, the bot can go to the places unreachable and provide us with necessary information if properly programmed or with the help of it’s secondary camera.
+4. They can be made to follow particular color based path to reach a particular destination.
+6. The programming mode can be used to solve various mazes by the bots using android.
+7. With the help of face following mechanism, one can bring his robot with him without any effort.
 
+## Challenges
+1. The major challenge is the accommodation of battery and attachment of the android phone with the base within the desired boundaries of the design.
+2. The design of the robot is very crucial aspect for it’s efficient working.
 
+## Additional Notes
+1. We completed this project during summer 2017.
+2. For demo, please watch this YouTube video - https://www.youtube.com/watch?v=inJWdqrtSh4
