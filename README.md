@@ -7,6 +7,24 @@ FROMO(Friendly Robot Mobile) is capable of performing tasks like remote controll
 
 For demo, please watch this YouTube video - https://www.youtube.com/watch?v=inJWdqrtSh4
 
+## Software and Hardware Requirements
+1. [Android Studio](https://developer.android.com/studio). App is implemented in Java.
+2. Microcontroller Board - We have used [Arduino UNO](https://www.arduino.cc/en/Guide/ArduinoUno). Other options are [RPi](https://www.raspberrypi.org/) or [ESP8266](https://www.espressif.com/en/products/socs/esp8266/overview).
+3. Connection between mobile and robot can be established via bluetooth as well as wifi. We have used the bluetooth method and hence recommend interfacing bluetooth module [HC-05](https://components101.com/wireless/hc-05-bluetooth-module).
+4. Jumper wires.
+5. Chasis to mount mobile phone.
+6. Mobile phone holder (you can use anything to keep the phone mouted).
+7. LiPo battery or simple power source to power up the microcontroller.
+
+## Getting Started and Learning Resources
+
+1. Download the code and import it in android studio. 
+2. Download/Write script and then push the code to the microcontroller after successful compilation. 
+3. [Arduino UNO installation](https://www.youtube.com/watch?v=5OtMqr5hGjE)
+4. [HC-05 with Arduino UNO](https://www.youtube.com/watch?v=OhnxU8xALtg)
+5. [Camera API Android](https://developer.android.com/guide/topics/media/camera)
+6. [Bluetooth integration in Android](https://developer.android.com/guide/topics/connectivity/bluetooth#java)
+
 <img src="images/IMG_20170714_133324736_HDR.jpg" width=400 height=600 style="float:left">
 <img src="images/IMG_20170714_222216385.jpg" width=400 height=600 style="float:left">
 
