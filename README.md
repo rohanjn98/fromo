@@ -1,4 +1,4 @@
-# fromo
+# FROMO
 FROMO - Friendly Robot Mobile - Android Robotics
 
 Android in today's world is a widely accepted operating system which is accessible, affordable and available across maximum part of the globe.
