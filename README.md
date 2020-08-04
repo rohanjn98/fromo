@@ -25,11 +25,15 @@ For demo, please watch this YouTube video - https://www.youtube.com/watch?v=inJW
 5. [Camera API Android](https://developer.android.com/guide/topics/media/camera)
 6. [Bluetooth integration in Android](https://developer.android.com/guide/topics/connectivity/bluetooth#java)
 
-<img src="images/IMG_20170714_133324736_HDR.jpg" width=400 height=600 style="float:left">
-<img src="images/IMG_20170714_222216385.jpg" width=400 height=600 style="float:left">
+<p align="center">
+  <img src="images/model.png">
+</p>
+
 
 ## Flowchart of project
-![alt text](images/flowchart.png)
+<p align="center">
+  <img src="images/flowchart.png">
+</p>
 
 ## Goals Accomplished
 
