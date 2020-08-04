@@ -13,6 +13,8 @@ For demo, please watch this YouTube video - https://www.youtube.com/watch?v=inJW
 ## Flowchart of project
 ![alt text](images/flowchart.png)
 
+## Goals Accomplished
+
 ### 1. Face Following
 
 1. The app has camera preview feature in it.
@@ -50,7 +52,6 @@ For demo, please watch this YouTube video - https://www.youtube.com/watch?v=inJW
 <img src="images/programming-mode.png" width=625 height=350 style="float:left">
 
 ## Applications
-Our FROMO (Friendly Robot Mobile) is based on Android OS. It has wide industrial applications :
 1. Robots can be configured to do repetitive tasks using android.
 2. The size of the robot being a small one, it can be used for surveillance purpose.
 3. In the times of natural disasters like earthquakes, the bot can go to the places unreachable and provide us with necessary information if properly programmed or with the help of it’s secondary camera.
