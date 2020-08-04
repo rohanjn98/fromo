@@ -3,7 +3,7 @@ FROMO - Friendly Robot Mobile
 
 Android in today's world is a widely accepted operating system which is accessible, affordable and available across maximum part of the globe.
 
-FROMO(Friendly Robot Mobile) is capable of performing tasks like remote controlled movement, face following mechanism (follows your face wherever you go!), programming mechanism (you can basically programme the robot’s moves in a predefined way!), colored line following mechanism (the robot can follow colored lines!).
+FROMO(Friendly Robot Mobile) is capable of performing tasks like remote controlled movement, face following mechanism (follows your face wherever you go!), programming mechanism (you can basically program the robot’s moves in a predefined way!), colored line following mechanism (the robot can follow colored lines!).
 
 <img src="images/IMG_20170714_133324736_HDR.jpg" width=400 height=600 style="float:left">
 <img src="images/IMG_20170714_222216385.jpg" width=400 height=600 style="float:left">
