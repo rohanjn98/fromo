@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.rohan.fromo.menu"
+    android:orientation="vertical"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="8dp">
+
+
+    <Button
+        android:id="@+id/rcmode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:onClick="rcmode"
+        android:text="RC MODE"
+        android:textSize="28sp" />
+
+    <Button
+        android:id="@+id/facefollower"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@android:color/holo_blue_bright"
+        android:onClick="facefollower"
+        android:text="FACE FOLLOWER"
+        android:textSize="28sp" />
+
+    <Button
+        android:id="@+id/pathfollower"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@android:color/holo_green_light"
+        android:onClick="pathfollower"
+        android:text="PATH FOLLOWER"
+        android:textSize="28sp" />
+
+    <Button
+        android:id="@+id/animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@android:color/holo_orange_light"
+        android:onClick="animation"
+        android:text="ANIMATIONS"
+        android:textSize="28sp" />
+
+    <Button
+        android:id="@+id/trainingmode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@android:color/holo_red_light"
+        android:onClick="trainingmode"
+        android:text="TRAINING MODE"
+        android:textSize="28sp" />
+</LinearLayout>
+

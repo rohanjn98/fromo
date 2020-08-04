@@ -1,0 +1,225 @@
+package com.example.rohan.fromo;
+
+/**
+ * Created by rohan on 15-07-2017.
+ */
+
+
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.hardware.Camera;
+import android.util.Log;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.logging.Logger;
+
+
+public class CameraView extends SurfaceView implements SurfaceHolder.Callback, Camera.PreviewCallback {
+    private SurfaceHolder mHolder;
+    private Camera mCamera;
+    Button btn;
+    private int width = 320, height = 240; //size of the preview image
+    private boolean isRunning = false; //if the robot is running
+    private boolean isCalibrating = false; //if the application is calibrating the colors
+    private boolean isFlashOn = false; //if the flash is on
+    private List<ImageView> mBlocks = new ArrayList<ImageView>(); //list of buttons
+    private int[] mBlocksMedian = new int[5]; //median value of each block
+
+    private int mBlocksBiggest = 0; //biggest value of blocks
+    private int mBlocksLowest = 255; //lowest value of blocks
+    private int calibratingCounter = 0; //how many pictures was processed in the calibration
+
+    private boolean canProcess = false; //if we can process the image
+    private int colorDivisor = 126; //if > than colorDivisor then is black
+    public static int val;
+    public static String string;
+    private pathfollower parent;
+
+    public CameraView(Context context, Camera camera) {
+        super(context);
+        parent = (pathfollower) context;
+        mCamera = camera;
+        Camera.Parameters p = mCamera.getParameters();
+        p.setPreviewSize(width, height);
+        //p.setPreviewFormat(1);
+        mCamera.setParameters(p);
+
+        mCamera.setDisplayOrientation(90);
+        //get the holder and set this class as the callback, so we can get camera data here
+        mHolder = getHolder();
+        mHolder.addCallback(this);
+        mHolder.setType(SurfaceHolder.SURFACE_TYPE_NORMAL);
+    }
+
+    @Override
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        try {
+            //when the surface is created, we can set the camera to draw images in this surfaceholder
+            mCamera.setPreviewDisplay(surfaceHolder);
+            mCamera.setPreviewCallback(this);
+            mCamera.startPreview();
+
+            mBlocks.add((ImageView) parent.findViewById(R.id.btnCalibrate));
+            mBlocks.add((ImageView) parent.findViewById(R.id.btnFlash));
+            mBlocks.add((ImageView) parent.findViewById(R.id.btnConnect));
+            mBlocks.add((ImageView) parent.findViewById(R.id.btnStop));
+            mBlocks.add((ImageView) parent.findViewById(R.id.btnStart));
+           // btn=(Button)findViewById(R.id.button);
+        }
+        catch (IOException e) {
+            Log.d("ERROR", "Camera error on surfaceCreated " + e.getMessage());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+        //before changing the application orientation, you need to stop the preview, rotate and then start it again
+        if (mHolder.getSurface() == null)//check if the surface is ready to receive camera data
+            return;
+
+        try {
+            mCamera.stopPreview();
+        }
+        catch (Exception e) {
+            //this will happen when you are trying the camera if it's not running
+        }
+
+        //now, recreate the camera preview
+        try {
+            mCamera.setPreviewDisplay(mHolder);
+            mCamera.setPreviewCallback(this);
+            mCamera.startPreview();
+        } catch (IOException e) {
+            Log.d("ERROR", "Camera error on surfaceChanged " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+    }
+
+    @Override
+    public void onPreviewFrame(byte[] bytes, Camera camera) {
+        synchronized (this) {
+            if (!isCalibrating && !canProcess && isRunning) {
+                return; //if we are calibrating the camera, we'll analyze all pictures
+                //but if we are running the robot(calibrating = false), we can only analyze it when
+                //canProcess = true
+                //with canProcess, we'll be able to choose how many pixels will be analyzed per second
+            }
+
+            int mBlocksQtd[] = new int[5]; //count number of pixels per block
+            Arrays.fill(mBlocksMedian, 0); //we reset the block values
+
+            int initialLine = 295; //where we start to analyze
+            int finalLine = 300; //the final line to analyze
+            int i, j = 5;
+
+            for (i = 0; i < 240; i++) {
+                if (i % 48 == 0) //we dived the 240 line in 5 blocks, each one with 48px
+                    j--; //each 48px, we successfully read a block
+                int value = 0;
+                for (int k = initialLine; k < finalLine; k++) { //for each line we read the value of the pixel
+                    value += (bytes[k + 320 * i]) & 0xFF;
+                }//convert to a byte
+                value /= (finalLine - initialLine); //get the median of this pixel
+
+                mBlocksMedian[j] += value; //add the pixel median to the block
+                mBlocksQtd[j]++; //add 1 to the number of pixels analyzed in each block.
+                // Total will be 48, just use it to be easier to change the code :)
+            }
+
+            for (i = 0; i < 5; i++)
+                mBlocksMedian[i] = mBlocksMedian[i] / mBlocksQtd[i]; //get the media value of each block
+
+            if (isCalibrating) { //if this method is being called in a calibration, we need to
+                doCalibrate(); //recalculate some variables
+                return;
+            }
+
+            //if we are not processing, we need to display the camera results in the buttons
+            val=0;
+            for (i = 0; i < 5; i++) {
+                mBlocks.get(i).setBackgroundColor(mBlocksMedian[i] > colorDivisor ? Color.WHITE : Color.BLACK);
+                ColorDrawable drawable = (ColorDrawable) mBlocks.get(i).getBackground();
+                int color = drawable.getColor();
+                if (color == Color.BLACK) {
+                    if(i==0) {
+                        val += (int) Math.pow(2, i);
+                    }
+                    if(i==4){
+                        val += (int) Math.pow(2, 1);
+                    }
+                }
+            }
+            //mainActivity.getInt(val);
+            string=Integer.toString(val);
+           // Logger.Log(string);
+
+            //mainActivity.setName(s);
+            //server.Run(
+            //after each image processed, we'll need to wait until the next frame
+            canProcess = false;
+        }
+    }
+
+
+    private void doCalibrate() {
+        //this method is called each frame
+        int i;
+        for (i = 0; i < 5; i++) {//so we check the lowest and biggest median of each block
+            if (mBlocksMedian[i] > mBlocksBiggest)
+                mBlocksBiggest = mBlocksMedian[i];
+            if (mBlocksMedian[i] < mBlocksLowest)
+                mBlocksLowest = mBlocksMedian[i];
+        }
+
+        calibratingCounter++;
+        isCalibrating = true;//we do it 100 times, and then we call the stopCalibrate
+        if (calibratingCounter == 100)
+            stopCalibrate();
+
+    }
+
+    private void stopCalibrate() {
+        //this method will calculated the colorDivisor as the median of the lowest and biggest
+        colorDivisor = (mBlocksLowest + mBlocksBiggest) / 2;
+        isCalibrating = false;
+
+       // Logger.Log("New color dividor: " + colorDivisor);
+    }
+
+    public void Calibrate() {
+       // Logger.Log("Calibrating...");
+        mBlocksBiggest = 0;
+        mBlocksLowest = 255;
+        isCalibrating = true;
+
+    }
+
+    public void switchFlash() {
+        Camera.Parameters p = mCamera.getParameters();
+        if (isFlashOn)
+            p.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+        else
+            p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+        isFlashOn = !isFlashOn;
+        mCamera.setParameters(p);
+       // Logger.Log("Flash switched");
+    }
+
+
+
+
+}

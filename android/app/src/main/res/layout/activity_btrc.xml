@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="com.example.rohan.fromo.btrc">
+
+    <ImageButton
+        android:id="@+id/up"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/left"
+        android:layout_toEndOf="@+id/left"
+        android:src="@drawable/up" />
+
+    <ImageButton
+        android:id="@+id/right"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/up"
+        android:layout_toEndOf="@+id/up"
+        android:src="@drawable/left" />
+
+    <ImageButton
+        android:id="@+id/left"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/down"
+        android:src="@drawable/right" />
+
+    <ImageButton
+        android:id="@+id/down"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/right"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/down" />
+
+    <Button
+        android:id="@+id/off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STOP"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

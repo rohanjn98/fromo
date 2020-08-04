@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.rohan.fromo">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CAMERA" />//Camera permissions
+    <uses-feature android:name="android.hardware.camera" />//Camera features
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".menu" />
+        <activity android:name=".facefollower"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".pathfollower" />
+        <activity android:name=".animation"/>
+        <activity android:name=".objecttracking" />
+        <activity android:name=".surveillance" />
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".top" />
+        <activity android:name=".bottom" />
+        <activity android:name=".right" />
+        <activity android:name=".left" />
+        <activity android:name=".btrc"></activity>
+    </application>
+
+</manifest>

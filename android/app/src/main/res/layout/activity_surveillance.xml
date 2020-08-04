@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_red_light"
+    tools:context="com.example.rohan.fromo.surveillance">
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="300dp"
+                android:layout_height="320dp"
+                android:layout_column="1"
+                android:gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textSize="30sp" />
+
+        </TableRow>
+
+        <TableRow>
+
+        </TableRow>
+
+        <TableRow>
+
+        </TableRow>
+    </TableLayout>
+
+
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tableLayout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/forward"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_column="1"
+                android:layout_margin="10dp"
+                android:onClick="forward"
+                android:padding="10dp"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:src="@drawable/up"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <ImageButton
+                android:id="@+id/reverse"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_column="1"
+                android:layout_margin="10dp"
+                android:onClick="reverse"
+                android:padding="10dp"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:src="@drawable/down"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <ImageButton
+                android:id="@+id/right"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_column="1"
+                android:layout_margin="10dp"
+                android:onClick="right"
+                android:padding="10dp"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:src="@drawable/left"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <ImageButton
+                android:id="@+id/left"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_column="1"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:src="@drawable/right"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+        </TableRow>
+
+        <TableRow>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <Button
+                android:id="@+id/tiltforward"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_column="1"
+                android:layout_margin="10dp"
+                android:onClick="tiltforward"
+                android:padding="10dp"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:text="TILT FORWARD"
+                android:textColor="@android:color/black"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/tiltbackward"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_column="1"
+                android:layout_margin="10dp"
+                android:onClick="tiltbackward"
+                android:padding="10dp"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:text="TILT BACKWARD"
+                android:textColor="@android:color/black"
+                android:textSize="7sp" />
+
+            <ImageButton
+                android:id="@+id/start"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_column="1"
+                android:layout_margin="10dp"
+                android:onClick="start"
+                android:padding="10dp"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:src="@drawable/st"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <ImageButton
+                android:id="@+id/stop"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_column="1"
+                android:layout_margin="10dp"
+                android:onClick="stop"
+                android:padding="10dp"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:src="@drawable/stop"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+        </TableRow>
+
+
+        <TableRow>
+
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>
